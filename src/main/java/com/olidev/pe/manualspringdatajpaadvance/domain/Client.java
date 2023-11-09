@@ -25,4 +25,8 @@ public class Client {
     private Long id;
     @Column(name = "name")
     private String name;
+
+    // Relación 1 a 1 en el ORM
+    @OneToOne
+    private User user;
 }

@@ -23,7 +23,7 @@ public class ManualSpringDataJpaAdvanceApplication {
     ) {
         return args -> {
             User user1 = userRepository.save(new User(null, "Olidev", "123456"));
-            Client client1 = clientRepository.save(new Client(null, "Jean Yantas"));
+            Client client1 = clientRepository.save(new Client(null, "Jean Yantas", user1)); // Se agrega user1 para la relación 1 a 1
             System.out.println(client1.toString());
         };
     }
