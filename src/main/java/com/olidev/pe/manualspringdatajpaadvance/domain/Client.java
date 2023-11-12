@@ -41,4 +41,17 @@ public class Client {
     )
     // Como no deben repetir las direcciones se usa un Set<> y no un List<>
     private Set<Address> addresses = new HashSet<>();
+
+    // Relacion de muchos a muchos
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "client_product", // representa una nueva entidad (y tabla en la DB de ser el caso) con nombre client_product que representa la relación de las entidades Client y Product
+            joinColumns = {
+                    @JoinColumn(name = "fk_client") // Columna 1 de la entidad client_product
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(name = "fk_product") // Columna 2 de la entidad client_product
+            }
+    )
+    private Set<Product> products = new HashSet<>();
 }
